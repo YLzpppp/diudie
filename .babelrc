@@ -1,0 +1,54 @@
+{
+  "presets": ["module:metro-react-native-babel-preset"],
+  "plugins": [
+    "import-graphql",
+    [
+      "~babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    [
+      "babel-plugin-root-import",
+      {
+        "paths": [{
+          "rootPathSuffix": "./",
+          "rootPathPrefix": "~app"
+        },
+          {
+            "rootPathSuffix": "./src",
+            "rootPathPrefix": "~src"
+          },
+          {
+            "rootPathSuffix": "./src/view",
+            "rootPathPrefix": "~v/"
+          },
+          {
+            "rootPathSuffix": "./src/viewmodel",
+            "rootPathPrefix": "~vm/"
+          },
+          {
+            "rootPathSuffix": "./src/model",
+            "rootPathPrefix": "~m/"
+          },
+          {
+            "rootPathSuffix": "./src/view/res/mipmap",
+            "rootPathPrefix": "~mipmap/"
+          },
+          {
+            "rootPathSuffix": "./src/view/res/values",
+            "rootPathPrefix": "~values/"
+          },
+          {
+            "rootPathSuffix": "./src/res",
+            "rootPathPrefix": "~res/"
+          },
+          {
+            "rootPathSuffix": "./src/ztest",
+            "rootPathPrefix": "~test"
+          }
+        ]
+      }
+    ]
+  ]
+}
