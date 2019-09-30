@@ -1,9 +1,6 @@
-/**
- * @format
- */
-
-import {AppRegistry} from 'react-native';
-import App from './src/viewmodel/App';
+import Global from './src/model/global';
+import {AppRegistry,PermissionsAndroid} from 'react-native';
+import MainViewController from './src/viewmodel/MainViewController';
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent(appName, () => MainViewController);

@@ -1,20 +1,15 @@
 {
-  "presets": ["module:metro-react-native-babel-preset"],
+  "presets": ["module:metro-react-native-babel-preset","mobx"],
   "plugins": [
+    // "transform-decorators-legacy",
     "import-graphql",
-    [
-      "~babel/plugin-proposal-decorators",
-      {
-        "legacy": true
-      }
-    ],
     [
       "babel-plugin-root-import",
       {
         "paths": [{
           "rootPathSuffix": "./",
           "rootPathPrefix": "~app"
-        },
+          },
           {
             "rootPathSuffix": "./src",
             "rootPathPrefix": "~src"

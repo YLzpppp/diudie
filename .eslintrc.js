@@ -38,13 +38,37 @@ module.exports = {
           typescript: {},
           'babel-plugin-root-import': [
               {
-                  rootPathPrefix: '@app',
+                  rootPathPrefix: '~app',
                   rootPathSuffix: './',
               },
               {
-                  rootPathPrefix: '@src',
+                  rootPathPrefix: '~src',
                   rootPathSuffix: './src',
               },
+              {
+                rootPathSuffix: "./src/view",
+                rootPathPrefix: "~v"
+              },
+              {
+                rootPathSuffix: "./src/viewmodel",
+                rootPathPrefix: "~vm"
+              },
+              {
+                rootPathSuffix: "./src/model",
+                rootPathPrefix: "~m"
+              },
+              {
+                rootPathSuffix: "./src/view/res/mipmap",
+                rootPathPrefix: "~mipmap"
+              },
+              {
+                rootPathSuffix: "./src/view/res/values",
+                rootPathPrefix: "~values"
+              },
+              {
+                rootPathSuffix: "./src/res",
+                rootPathPrefix: "~res"
+              }
           ],
           node: {
               extensions: ['.js', '.jsx', 'ts', '.tsx'],
