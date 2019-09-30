@@ -1,5 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+
+//拿到可变主题色集 @param( color )
+const color = colors.getColor();
+
 // 主页
 import HomePage from '~vm/pages/HomePage';
 // 个人页
@@ -12,7 +16,7 @@ const BottomTabNavigator = createBottomTabNavigator(
         home : {
            screen: HomePage,
            navigationOptions:{
-               tabBarLabel : "首页"
+               tabBarLabel : "首页",
            }
         },
         message : {
@@ -32,7 +36,7 @@ const BottomTabNavigator = createBottomTabNavigator(
         initialRouteName: "home",
         order: ['home','message','my'],
         tabBarOptions: {
-            inactiveBackgroundColor: '#666',
+            inactiveBackgroundColor: '#FFF',
         },
     }
 );

@@ -7,11 +7,15 @@ import * as Storage from '../Storage';
 class AppStore {
     @observable mode: boolean = false;
 
+    /**
+     *  App store 变量初始化
+     */
     __init(){
         console.log("Info : 正在初始化 AppStore ");
         //尝试读取本地存储的 app_mode 值
         Storage.getItem("app_mode").then( v => {this.mode = JSON.parse(v);console.log("storage 读取到的 app_mode 为:",v)} , e => {console.log("读取app_mode失败，app_mode将为默认值")});
     }
+
     constructor(){
         this.__init();
         autorun( () => {
