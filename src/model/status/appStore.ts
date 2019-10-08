@@ -5,26 +5,30 @@ import * as Storage from '../Storage';
  */
 
 class AppStore {
-    @observable mode: boolean = false;
+    @observable mode: boolean = true;
 
     /**
      *  App store 变量初始化
      */
     __init(){
-        console.log("Info : 正在初始化 AppStore ");
+        console.log("Info: [appStore] 正在初始化 AppStore ");
         //尝试读取本地存储的 app_mode 值
-        Storage.getItem("app_mode").then( v => {this.mode = JSON.parse(v);console.log("storage 读取到的 app_mode 为:",v)} , e => {console.log("读取app_mode失败，app_mode将为默认值")});
-    }
+        Storage.getItem("app_mode").then(
+             v => {
+                 this.mode = JSON.parse(v);
+                 console.log("Info: [appStore] storage 读取到的 app_mode 为:",v);
+                 if(this.mode === null){
+                     console.log("Info: [appStore] storage读取到的 mode值为null，将设置为true");
+                     this.mode = true;
+                 }
+                } , 
+            e => {
+                console.log("Info: [appStore] 读取app_mode失败，app_mode将为默认值")
+            });
+    };
 
     constructor(){
         this.__init();
-        autorun( () => {
-            if(this.mode){
-                console.log('Info: [appStore] 现在模式为 : 夜间模式  mode : ',this.mode);
-            }else{
-                console.log('Info: [appStore] 现在模式为 : 白天  mode : ',this.mode);
-            }
-        });
     }
 
     @action.bound

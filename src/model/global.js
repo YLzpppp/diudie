@@ -1,6 +1,7 @@
 import { Dimensions } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import AppColor from '~values/colors';
+import * as appjson from '~app/app.json';
 
 const Global = global || window || {};
 
@@ -38,5 +39,7 @@ console.log(device);
 Global.Device = device;
 
 const ColorInstance = AppColor.Instance();
-Global.colors = ColorInstance;
+Global.Colors = ColorInstance;
+
+Global.Configs = appjson;
 

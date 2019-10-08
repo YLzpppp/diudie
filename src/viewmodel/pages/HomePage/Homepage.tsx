@@ -9,7 +9,8 @@ import * as storage from '../../../model/Storage';
 
 
 const Homepage: React.FC = observer (props => {
-    const color = colors.getColor();
+    const color = Colors.getColor();
+    console.log("Info: [Homepage] ",color.BottomTabActiveColor,color.SecondaryColor);
     return (
         <FlexView justifyContent={"center"} alignItems={"center"}>
             <View style={{width:100,height:100,backgroundColor: color.SecondaryColor}}/>

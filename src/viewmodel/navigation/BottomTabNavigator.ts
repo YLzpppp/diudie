@@ -1,8 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-
+import BottomTabItems from './BottomTabItems';
+import gql from 'graphql-tag';
 //拿到可变主题色集 @param( color )
-const color = colors.getColor();
+const color = Colors.getColor();
 
 // 主页
 import HomePage from '~vm/pages/HomePage';
@@ -34,10 +35,22 @@ const BottomTabNavigator = createBottomTabNavigator(
     },
     {
         initialRouteName: "home",
-        order: ['home','message','my'],
+        // order: ['home','message','my'],
+        tabBarComponent: BottomTabItems,
+        lazy: false,
+        backBehavior: 'none',
         tabBarOptions: {
-            inactiveBackgroundColor: '#FFF',
+            safeAreaInset: {
+                bottom: 'always',
+                top: 'never',
+            },
+            showLabel: false
         },
+        navigationOptions: ({navigation}) => {
+            const { routes } = navigation.state;
+            const params = routes? routes[navigation.state.index].params : null ;
+            const headerTitle = params ? params.title : '';
+        }
     }
 );
 
